@@ -1,9 +1,10 @@
 <#
-Module description: ----
+Module description: This module is used to customize the PowerShell interface.
+Author: Solorzano, Juan Jose.
+Date: 2021-06-01
+NOTE: This script was developed for Windows PowerShell v1.0
 #>
-
 Clear-Host #clear the console every time when the script is called.
-
 #------ Importing PS1 Modules ------#
 $exe_path = Get-Location
 Set-Location $HOME
@@ -17,11 +18,8 @@ $module_name = ($HOME + "\{0}.psm1" -f ".decode")
 $module_exists = [System.IO.File]::Exists($module_name)
 if($module_exists){Import-Module -Name $module_name -DisableNameChecking}
 Set-Location $exe_path
-#--------- MAIN FUNCTION <prompt> -----------#
+# prompt function
 function prompt {
-	<#
-		This function provides a new visualization of the PowerShell interface.
-	#>
 	$Host.UI.RawUI.WindowTitle = (Get-Location).Path
 	Set-PSReadLineOption -Colors @{ Command = 'green' }
 	$currentDir = (Convert-Path .)

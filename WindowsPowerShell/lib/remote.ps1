@@ -10,7 +10,7 @@ if($null -eq $bench){
 } 
 
 $current_location = Get-Location
-$rootPath = "D:\Tebenator\"
+$rootPath = "D:\folder_name\"
 Set-Location $rootPath
 $allTB = Get-ChildItem
 
